@@ -1,0 +1,21 @@
+import itertools
+import strings
+
+# Define the strings to be concatenated
+strings = ['Me', 'Myself', '10', 'Avril', 'Camila', 'Nico', ':)', ':(', '2008', 'Moises']
+
+# Open the file to write the passwords to
+filename = 'passwordsFile.txt'
+
+# Ask for the number of repetitions
+repeat_num = int(input("Enter the number of repetitions:"))
+
+# Generate all possible combinations of the strings
+with open('passwordsFile.txt', 'w') as f:
+    for i in itertools.product(strings, repeat=repeat_num):
+        # Concatenate the strings
+        password = ''.join(i)
+        # Write the password to the file
+        f.write(password + '\n')
+
+print(f"Passwords saved to 'passwordsFile.txt'.")
